@@ -1,0 +1,9 @@
+# vercel
+.vercel/
+
+# os / editor
+.DS_Store
+*.log
+
+# dependencies
+node_modules/

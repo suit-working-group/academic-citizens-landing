@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Academic Citizens — Open initiatives for the academic community</title>
+<meta name="description" content="Academic Citizens hosts open, institution-neutral initiatives built by and for the academic community — starting with SUIT, a built-to-last reference for university IT.">
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Academic Citizens">
+<meta property="og:title" content="Academic Citizens">
+<meta property="og:description" content="Open, institution-neutral initiatives built by and for the academic community.">
+<meta property="og:url" content="https://academic-citizens.org/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Academic Citizens">
+<meta name="twitter:description" content="Open, institution-neutral initiatives built by and for the academic community.">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+
+<style>
+  :root{
+    --ink:#1a2230; --blue:#1a5276; --blue-deep:#12384f; --accent:#e8590c;
+    --muted:#5d6d7e; --line:#e6ebf1; --bg:#f6f8fb; --card:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; color:var(--ink); background:var(--bg);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--blue);}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 24px;}
+
+  /* Hero */
+  header.hero{
+    position:relative; color:#fff; overflow:hidden;
+    background:radial-gradient(1200px 480px at 80% -10%, #235d82 0%, transparent 60%),
+               linear-gradient(160deg, var(--blue-deep) 0%, var(--blue) 100%);
+  }
+  .hero .wrap{padding:clamp(56px,9vw,104px) 24px clamp(48px,7vw,84px);}
+  .brand{display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.2px; opacity:.95;}
+  .brand .dot{width:11px; height:11px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px rgba(232,89,12,.25);}
+  h1{
+    margin:22px 0 14px; font-size:clamp(34px,6vw,60px); line-height:1.08;
+    letter-spacing:-.5px; font-weight:800;
+  }
+  .lead{font-size:clamp(17px,2.4vw,21px); max-width:42ch; color:#d6e4ee; margin:0;}
+  .hero .meta{margin-top:28px; display:flex; flex-wrap:wrap; gap:10px;}
+  .chip{
+    font-size:13.5px; padding:7px 13px; border-radius:999px;
+    background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.18); color:#eaf2f8;
+  }
+
+  /* Projects */
+  main{padding:clamp(44px,6vw,72px) 0;}
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:22px;}
+  .section-head h2{font-size:14px; text-transform:uppercase; letter-spacing:2px; color:var(--muted); margin:0; font-weight:700;}
+  .section-head .count{font-size:13px; color:var(--muted);}
+
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:22px;}
+
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:16px;
+    padding:26px; display:flex; flex-direction:column;
+    box-shadow:0 1px 2px rgba(16,40,70,.04);
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .card.feature{
+    grid-column:1 / -1;
+    display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:30px; align-items:center;
+    background:
+      linear-gradient(0deg, rgba(26,82,118,.03), rgba(26,82,118,.03)),
+      var(--card);
+  }
+  .card:hover{transform:translateY(-3px); box-shadow:0 12px 30px rgba(16,40,70,.10); border-color:#d4deea;}
+
+  .logo-frame{
+    background:#fff; border:1px solid var(--line); border-radius:14px;
+    padding:26px; display:flex; align-items:center; justify-content:center; min-height:150px;
+  }
+  .logo-frame img{max-width:100%; height:auto; max-height:96px;}
+
+  .tag{
+    align-self:flex-start; font-size:12px; font-weight:700; letter-spacing:.6px; text-transform:uppercase;
+    color:var(--accent); background:rgba(232,89,12,.08); padding:5px 10px; border-radius:6px; margin-bottom:14px;
+  }
+  .card h3{margin:0 0 8px; font-size:23px; line-height:1.25;}
+  .card p{margin:0 0 18px; color:#3a4756;}
+  .feature p{font-size:16.5px;}
+
+  .features{list-style:none; margin:0 0 22px; padding:0; display:flex; flex-wrap:wrap; gap:8px;}
+  .features li{font-size:13px; color:var(--muted); background:#f1f5f9; border-radius:999px; padding:5px 12px;}
+
+  .cta-row{display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-top:auto;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-weight:700;
+    padding:14px 26px; border-radius:10px; font-size:16px;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn-primary{background:var(--accent); color:#fff; box-shadow:0 8px 22px rgba(232,89,12,.28);}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 12px 28px rgba(232,89,12,.36);}
+  .btn-primary svg{transition:transform .15s ease;}
+  .btn-primary:hover svg{transform:translateX(3px);}
+  .btn-ghost{color:var(--blue); border:1.5px solid #cfdce8; background:#fff; padding:13px 22px;}
+  .btn-ghost:hover{border-color:var(--blue); background:#f4f8fb;}
+
+  /* Coming-soon placeholder card */
+  .card.soon{border-style:dashed; background:transparent; box-shadow:none; align-items:flex-start; justify-content:center; color:var(--muted);}
+  .card.soon:hover{transform:none; box-shadow:none; border-color:#cdd7e2;}
+  .card.soon h3{color:var(--ink);}
+  .card.soon .tag{color:var(--muted); background:#eef2f6;}
+
+  /* Footer */
+  footer{border-top:1px solid var(--line); color:var(--muted); font-size:14px; padding:30px 0 50px; background:#fff;}
+  footer .wrap{display:flex; flex-wrap:wrap; gap:8px 20px; align-items:center; justify-content:space-between;}
+  footer a{color:var(--muted); text-decoration:none;}
+  footer a:hover{color:var(--blue); text-decoration:underline;}
+
+  @media (max-width:720px){
+    .card.feature{grid-template-columns:1fr; padding:22px;}
+    .logo-frame{order:-1; min-height:120px; padding:20px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> Academic Citizens</div>
+    <h1>Open initiatives for the academic community.</h1>
+    <p class="lead">Institution-neutral, built-to-last references and tools — created by and for universities, in the open.</p>
+    <div class="meta">
+      <span class="chip">🌍 Institution-neutral</span>
+      <span class="chip">🔓 Open source</span>
+      <span class="chip">🎓 By the academic community</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Hosted projects</h2>
+      <span class="count">1 live · more to come</span>
+    </div>
+
+    <div class="grid">
+
+      <!-- Featured project: SUIT -->
+      <article class="card feature">
+        <div>
+          <span class="tag">Reference document suite</span>
+          <h3>SUIT — Sustainable University IT</h3>
+          <p>An open, international reference for building, operating and sustaining university IT infrastructure. Institution-neutral and vendor-neutral by design — any university can adopt it directly and instantiate it to its own context. <em>(“Sustainable” = built to last, not environmental.)</em></p>
+          <ul class="features">
+            <li>Policy &amp; Solution</li>
+            <li>Executive summaries</li>
+            <li>Worked instantiation</li>
+            <li>Open working group</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://join.suit.academic-citizens.org/welcome">
+              Discover &amp; join SUIT
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="https://github.com/suit-working-group/suit-suite">View on GitHub</a>
+          </div>
+        </div>
+        <div class="logo-frame">
+          <img src="assets/suit-logo.svg" alt="SUIT logo"
+               onerror="this.onerror=null;this.src='assets/suit-logo-row.png';">
+        </div>
+      </article>
+
+      <!-- Placeholder for future initiatives -->
+      <article class="card soon">
+        <span class="tag">Coming soon</span>
+        <h3>More initiatives</h3>
+        <p>Academic Citizens is a home for further open, community-driven projects. Want to propose or host one? Get in touch.</p>
+        <a class="btn btn-ghost" href="mailto:nicolas.guelfi@uni.lu?subject=Academic%20Citizens%20—%20project%20proposal">Propose a project</a>
+      </article>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Academic Citizens — open initiatives for the academic community.</span>
+    <span>
+      <a href="https://join.suit.academic-citizens.org/welcome">SUIT</a> ·
+      <a href="https://github.com/suit-working-group">GitHub</a> ·
+      <a href="mailto:nicolas.guelfi@uni.lu">Contact</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
